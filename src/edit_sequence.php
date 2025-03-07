@@ -49,87 +49,44 @@ try {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
         <title>Edit Sequence</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
-            .content {
-                padding: 20px;
-                text-align: center;
-            }
-            form {
-                display: inline-block;
-                text-align: left;
-                margin: 20px auto;
-                padding: 20px;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                background-color: #f9f9f9;
-                width: 80%;
-                max-width: 600px;
-            }
-            label {
-                display: block;
-                margin: 10px 0;
-                font-weight: bold;
-            }
-            input, select, button {
-                width: 100%;
-                padding: 10px;
-                margin: 5px 0 15px 0;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-            button {
-                background-color: #04AA6D;
-                color: white;
-                border: none;
-                cursor: pointer;
-            }
-            button:hover {
-                background-color: #45a049;
-            }
-            .buttons {
-                display: flex;
-                justify-content: space-between;
-            }
-            .buttons button {
-                width: 30%;
-            }
-        </style>
     </head>
     <body>
-        <div class="content">
+        <header>
             <h1>Edit Sequence</h1>
-            <form method="POST" action="save_sequence.php">
-                <input type="hidden" name="id" value="<?= safe_input($sequence['ID_seq']) ?>">
-
-                <label for="seq_group">Sequence Group:</label>
-                <select id="seq_group" name="seq_group" required>
-                    <option value="MRI" <?= safe_input($sequence['seq_group']) == 'MRI' ? 'selected' : '' ?>>MRI</option>
-                    <option value="FMRI" <?= safe_input($sequence['seq_group']) == 'FMRI' ? 'selected' : '' ?>>FMRI</option>
-                    <option value="DTI" <?= safe_input($sequence['seq_group']) == 'DTI' ? 'selected' : '' ?>>DTI</option>
-                    <option value="SPETTRO" <?= safe_input($sequence['seq_group']) == 'SPETTRO' ? 'selected' : '' ?>>SPETTRO</option>
-                </select>
-
-                <label for="seq_name">Sequence Name:</label>
-                <input type="text" id="seq_name" name="seq_name" value="<?= safe_input($sequence['seq_name']) ?>" required>
-
-                <label for="deprecated">Deprecated:</label>
-                <select id="deprecated" name="deprecated">
-                    <option value="no" <?= safe_input($sequence['deprecated']) == 'no' ? 'selected' : '' ?>>No</option>
-                    <option value="yes" <?= safe_input($sequence['deprecated']) == 'yes' ? 'selected' : '' ?>>Yes</option>
-                </select>
-
-                <div class="buttons">
-                    <button type="submit">Save</button>
-                    <button type="button" onclick="window.history.back();">Back</button>
-                    <button type="button" onclick="window.location.href='sequences.php';">Cancel</button>
-                </div>
-            </form>
+        </header>
+        <div class="alline">
+            <div class="form-container">
+                <form method="POST" action="save_sequence.php">
+                    <input type="hidden" name="id" value="<?= safe_input($sequence['ID_seq']) ?>">
+                    <div class="form-group">
+                        <label for="seq_group">Sequence Group:</label>
+                        <select id="seq_group" name="seq_group" required>
+                            <option value="MRI" <?= safe_input($sequence['seq_group']) == 'MRI' ? 'selected' : '' ?>>MRI</option>
+                            <option value="FMRI" <?= safe_input($sequence['seq_group']) == 'FMRI' ? 'selected' : '' ?>>FMRI</option>
+                            <option value="DTI" <?= safe_input($sequence['seq_group']) == 'DTI' ? 'selected' : '' ?>>DTI</option>
+                            <option value="SPETTRO" <?= safe_input($sequence['seq_group']) == 'SPETTRO' ? 'selected' : '' ?>>SPETTRO</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="seq_name">Sequence Name:</label>
+                        <input type="text" id="seq_name" name="seq_name" value="<?= safe_input($sequence['seq_name']) ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deprecated">Deprecated:</label>
+                        <select id="deprecated" name="deprecated">
+                            <option value="no" <?= safe_input($sequence['deprecated']) == 'no' ? 'selected' : '' ?>>No</option>
+                            <option value="yes" <?= safe_input($sequence['deprecated']) == 'yes' ? 'selected' : '' ?>>Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Save</button>
+                        <button type="button" onclick="window.history.back();">Back</button>
+                        <button type="button" onclick="window.location.href='sequences.php';">Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </body>
     </html>
