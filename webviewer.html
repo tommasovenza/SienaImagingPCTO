@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" href="light.css" />
+  </head>
+  <body>
+    <noscript>niivue requires JavaScript.</noscript>
+    <header id="header">
+      Drag and drop a file from your local computer
+      <button id="openBtn">Choose an image or mesh with a dialog</button>
+    </header>
+    <main>
+      <canvas id="gl1"></canvas>
+    </main>
+    <script type="module" async>
+      import * as niivue from "https://niivue.github.io/niivue/dist/index.js";
+
+      async function addVolumeFromFiles(files) {
+        const file = files[0];
+        if (!file) return;
+
+        console.log("Attempting to open", file.name);
+        console.log("Details:", file);
+
+        // Load file into Niivue
+        nv1.loadFromFile(file);
+
+        // Hide the "open" button and text after file upload
+        document.getElementById("header").style.display = "none";
+
+        // Create and show the "Clear" button
+        const clearBtn = document.createElement("button");
+        clearBtn.textContent = "Clear";
+        clearBtn.onclick = () => location.reload();
+        document.body.appendChild(clearBtn);
+
+        // Automatically upload the file to the server
+        uploadFile(file);
+      }
+
+      function uploadFile(file) {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        /*
+         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         !!!! Replace with your VM's IP or domain name !!!! 
+         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+         */
+        
+         fetch("http://pcto.it:3001/upload", {
+          method: "POST",
+          body: formData
+        })
+          .then((response) => response.json())
+          .then((data) => console.log("Upload Success:", data))
+          .catch((error) => console.error("Upload Error:", error));
+      }
+
+      document.getElementById("openBtn").onclick = function () {
+        let input = document.createElement("input");
+        input.style.display = "none";
+        input.type = "file";
+        document.body.appendChild(input);
+        input.onchange = (event) => addVolumeFromFiles(event.target.files);
+        input.click();
+      };
+
+      var nv1 = new niivue.Niivue();
+      nv1.attachTo("gl1");
+      nv1.setSliceType(nv1.sliceTypeRender);
+    </script>
+  </body>
+</html>
