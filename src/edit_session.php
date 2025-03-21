@@ -144,50 +144,82 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Edit Session</title>
-
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            width: 80%;
+            max-width: 600px;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #04AA6D;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .buttons button {
+            width: 30%;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <header>
-            <h1>Edit Session</h1>
-        </header>
-        <div class="alline">
-            <div class="form-container">
-                <form method="POST">
-                <input type="hidden" name="id_session" value="<?= safe_input($session['id_session']) ?>">
-                    <div class="form-group"> 
-                        <label for="patient_id">Patient ID:</label>
-                        <input type="text" id="patient_id" name="patient_id" value="<?= safe_input($session['patient_id']) ?>" required>
-                    </div>
-                    <div class="form-group"> 
-                        <label for="date">Date:</label>
-                        <input type="date" id="date" name="date" value="<?= safe_input($session['date']) ?>" required>
-                    </div>
-                    <div class="form-group"> 
-                        <label for="time">Time:</label>
-                        <input type="time" id="time" name="time" value="<?= safe_input($session['time']) ?>" required>
-                    </div>
-                    <div class="form-group"> 
-                        <label for="duration">Duration (minutes):</label>
-                        <input type="number" id="duration" name="duration" value="<?= safe_input($session['duration']) ?>">
-                    </div>
-                    <div class="form-group"> 
-                        <label for="nifti_paths">Nifti Paths (one per line):</label>
-                        <textarea id="nifti_paths" name="nifti_paths" rows="5" required><?= safe_input($nifti_paths) ?></textarea>
-                    </div>
-                    <div class="form-group"> 
-                        <label for="notes">Notes:</label>
-                        <textarea id="notes" name="notes" rows="4"><?= safe_input($session['notes']) ?></textarea>
-                    </div>
-                    <div class="form-group"> 
-                        <button type="submit">Save</button>
-                        <button type="button" onclick="window.history.back();">Back</button>
-                    </div>
-                </form>
+    <div class="content">
+        <h1>Edit Session</h1>
+        <form method="POST">
+            <input type="hidden" name="id_session" value="<?= safe_input($session['id_session']) ?>">
+
+            <label for="patient_id">Patient ID:</label>
+            <input type="text" id="patient_id" name="patient_id" value="<?= safe_input($session['patient_id']) ?>" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" value="<?= safe_input($session['date']) ?>" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" value="<?= safe_input($session['time']) ?>" required>
+
+            <label for="duration">Duration (minutes):</label>
+            <input type="number" id="duration" name="duration" value="<?= safe_input($session['duration']) ?>">
+
+            <label for="nifti_paths">Nifti Paths (one per line):</label>
+            <textarea id="nifti_paths" name="nifti_paths" rows="5" required><?= safe_input($nifti_paths) ?></textarea>
+
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes" rows="4"><?= safe_input($session['notes']) ?></textarea>
+
+            <div class="buttons">
+                <button type="submit">Save</button>
+                <button type="button" onclick="window.history.back();">Back</button>
             </div>
-        </div>
+        </form>
     </div>
 </body>
 </html>

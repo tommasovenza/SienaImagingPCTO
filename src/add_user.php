@@ -79,53 +79,42 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Add User</title>
 </head>
 <body>
-    <header>
+    <div class="content">
         <h1>Add User</h1>
-    </header>
-    <div class="align">
-        <div class="form-container">
-            <form method="POST">
-                <div class="form-group">
-                    <label for="first_name">First Name:</label>
-                    <input type="text" id="first_name" name="first_name" required>
-                </div>
-                <div class="form-group">
-                    <label for="last_name">Last Name:</label>
-                    <input type="text" id="last_name" name="last_name" required>
-                </div>
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="privilege_level">Privilege Level:</label>
-                    <select id="privilege_level" name="privilege_level">
-                        <option value="0">Not Authorized</option>
-                        <option value="1">Support Staff</option>
-                        <option value="2">Office Staff</option>
-                        <option value="3">Medical Staff</option>
-                        <option value="4">Website admin</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Save</button>
-                    <button type="button" onclick="window.location.href='user_dashboard.php';">Back</button>
-                    <button type="button" onclick="window.history.back();">Cancel</button>
-                </div>
-            </form>
-        </div>
+        <form method="POST">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required>
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="privilege_level">Privilege Level:</label>
+            <select id="privilege_level" name="privilege_level">
+                <option value="0">Not Authorized</option>
+                <option value="1">Support Staff</option>
+                <option value="2">Office Staff</option>
+                <option value="3">Medical Staff</option>
+                <option value="4">Website admin</option>
+            </select>
+
+            <div class="buttons">
+                <button type="submit">Save</button>
+                <button type="button" onclick="window.history.back();">Back</button>
+                <button type="button" onclick="window.location.href='users.php';">Cancel</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>

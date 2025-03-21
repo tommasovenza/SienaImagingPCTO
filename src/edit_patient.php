@@ -53,99 +53,124 @@ try {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
         <title>Edit Patient</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            .content {
+                padding: 20px;
+                text-align: center;
+            }
+            form {
+                display: inline-block;
+                text-align: left;
+                margin: 20px auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+                width: 80%;
+                max-width: 600px;
+            }
+            input, textarea, button {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            button {
+                background-color: #04AA6D;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+            .buttons {
+                display: flex;
+                justify-content: space-between;
+            }
+            .buttons button {
+                width: 30%;
+            }
+        </style>
     </head>
     <body>
-        <header>
+        <div class="content">
             <h1>Edit Patient</h1>
-        </header>
-        <div class="alline">
-            <div class="form-container">   
-                <form method="POST" action="save_patient.php">
-                    <input type="hidden" name="id" value="<?= safe_input($patient['ID_anag']) ?>">
-                    <div class="form-group">
-                        <label for="lastname">Last Name:</label>
-                        <input type="text" id="lastname" name="lastname" value="<?= safe_input($patient['lastname']) ?>" required>
-                    </div>    
-                    <div class="form-group">
-                        <label for="firstname">First Name:</label>
-                        <input type="text" id="firstname" name="firstname" value="<?= safe_input($patient['firstname']) ?>" required>
-                    </div>    
-                    <div class="form-group">
-                        <label for="birth">Birth Date:</label>
-                        <input type="date" id="birth" name="birth" value="<?= safe_input($patient['birth']) ?>">
-                    </div>        
-                    <div class="form-group">
-                        <label for="birth_city">Birth City:</label>
-                        <input type="text" id="birth_city" name="birth_city" value="<?= safe_input($patient['birth_city']) ?>">
-                    </div>    
-                    <div class="form-group">
-                        <label for="birth_province">Birth Province:</label>
-                        <input type="text" id="birth_province" name="birth_province" value="<?= safe_input($patient['birth_province']) ?>">
-                    </div>    
-                    <div class="form-group">
-                        <label for="birth_state">Birth State:</label>
-                        <input type="text" id="birth_state" name="birth_state" value="<?= safe_input($patient['birth_state']) ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="sex">Gender:</label>
-                    <?php
-                        if (safe_input($patient['sex'] === "F")) {
-                            echo '<input type="radio" id="male" name="sex" value="M">';
-                            echo '<label for="male">Male</label>';
-                            echo '<input type="radio" id="female" name="sex" value="F" checked="true">';
-                            echo '<label for="female">Female</label>';
-                        } else {
-                            echo '<input type="radio" id="male" name="sex" value="M" checked="true">';
-                            echo '<label for="male">Male</label>';
-                            echo '<input type="radio" id="female" name="sex" value="F">';
-                            echo '<label for="female">Female</label>';
-                        }
-                    ?>
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address:</label>
-                        <input type="text" id="address" name="address" value="<?= safe_input($patient['address']) ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="CAP">CAP:</label>
-                        <input type="text" id="CAP" name="CAP" value="<?= safe_input($patient['CAP']) ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="city">City:</label>
-                        <input type="text" id="city" name="city" value="<?= safe_input($patient['city']) ?>">
-                    </div>    
-                    <div class="form-group">
-                        <label for="province">Province:</label>
-                        <input type="text" id="province" name="province" value="<?= safe_input($patient['province']) ?>">
-                    </div>    
-                    <div class="form-group">
-                        <label for="state">State:</label>
-                        <input type="text" id="state" name="state" value="<?= safe_input($patient['state']) ?>">
-                    </div>    
-                    <div class="form-group">
-                        <label for="CF">CF:</label>
-                        <input type="text" id="CF" name="CF" value="<?= safe_input($patient['CF']) ?>">
-                    </div>    
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="text" id="email" name="email" value="<?= safe_input($patient['email']) ?>">
-                    </div>    
-                    <div class="form-group">
-                        <label for="phone">Phone:</label>
-                        <input type="text" id="phone" name="phone" value="<?= safe_input($patient['phone']) ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="notes">Notes:</label>
-                        <textarea id="notes" name="notes" rows="4"><?= safe_input($patient['notes']) ?></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit">Save</button>
-                        <button type="button" onclick="window.history.back();">Back</button>
-                    </div>
-                </form>
-            </div>
+            <form method="POST" action="save_patient.php">
+                <input type="hidden" name="id" value="<?= safe_input($patient['ID_anag']) ?>">
+
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" value="<?= safe_input($patient['lastname']) ?>" required>
+
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" value="<?= safe_input($patient['firstname']) ?>" required>
+
+                <label for="birth">Birth Date:</label>
+                <input type="date" id="birth" name="birth" value="<?= safe_input($patient['birth']) ?>">
+
+                <label for="birth_city">Birth City:</label>
+                <input type="text" id="birth_city" name="birth_city" value="<?= safe_input($patient['birth_city']) ?>">
+
+                <label for="birth_province">Birth Province:</label>
+                <input type="text" id="birth_province" name="birth_province" value="<?= safe_input($patient['birth_province']) ?>">
+
+                <label for="birth_state">Birth State:</label>
+                <input type="text" id="birth_state" name="birth_state" value="<?= safe_input($patient['birth_state']) ?>">
+
+                <label for="sex">Gender:</label>
+                <?php
+                if (safe_input($patient['sex'] === "F")) {
+                    echo '<input type="radio" id="male" name="sex" value="M">';
+                    echo '<label for="male">Male</label>';
+                    echo '<input type="radio" id="female" name="sex" value="F" checked="true">';
+                    echo '<label for="female">Female</label>';
+                } else {
+                    echo '<input type="radio" id="male" name="sex" value="M" checked="true">';
+                    echo '<label for="male">Male</label>';
+                    echo '<input type="radio" id="female" name="sex" value="F">';
+                    echo '<label for="female">Female</label>';
+                }
+                ?>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" value="<?= safe_input($patient['address']) ?>">
+
+                <label for="CAP">CAP:</label>
+                <input type="text" id="CAP" name="CAP" value="<?= safe_input($patient['CAP']) ?>">
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" value="<?= safe_input($patient['city']) ?>">
+
+                <label for="province">Province:</label>
+                <input type="text" id="province" name="province" value="<?= safe_input($patient['province']) ?>">
+
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" value="<?= safe_input($patient['state']) ?>">
+
+                <label for="CF">CF:</label>
+                <input type="text" id="CF" name="CF" value="<?= safe_input($patient['CF']) ?>">
+
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" value="<?= safe_input($patient['email']) ?>">
+
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" value="<?= safe_input($patient['phone']) ?>">
+
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes" rows="4"><?= safe_input($patient['notes']) ?></textarea>
+
+                <div class="buttons">
+                    <button type="submit">Save</button>
+                    <button type="button" onclick="window.history.back();">Back</button>
+                </div>
+            </form>
         </div>
     </body>
     </html>

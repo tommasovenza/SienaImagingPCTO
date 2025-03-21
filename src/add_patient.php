@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Add Patient</title>
 </head>
-
-
-
 <body>
-    <header>
+    <div class="content">
         <h1>Add Patient</h1>
-    </header>
+
         <?php
 session_start();
 
@@ -119,87 +115,66 @@ try {
     die();
 }
 ?>
-    <div class="alline">
-        <div class="form-container">
-            <form method="POST">
-                <div class="form-group">                
-                    <label for="lastname">Last Name:</label>
-                    <input type="text" id="lastname" name="lastname" required>
-                </div>
-                <div class="form-group">
-                    <label for="firstname">First Name:</label>
-                    <input type="text" id="firstname" name="firstname" required>
-                </div>
-                <div class="form-group">
-                    <label for="birth">Birth Date:</label>
-                    <input type="date" id="birth" name="birth">
-                </div>
-                <div class="form-group">
-                    <label for="birth_city">Birth City:</label>
-                    <input type="text" id="birth_city" name="birth_city">
-                </div>
-                <div class="form-group">
-                    <label for="birth_province">Birth Province:</label>
-                    <input type="text" id="birth_province" name="birth_province">
-                </div>
-                <div class="form-group">
-                    <label for="birth_state">Birth State:</label>
-                    <input type="text" id="birth_state" name="birth_state">
 
-                <label for="sex">Gender:</label>
-                <div class="form-groups">
-                    <input type="radio" id="male" name="sex" value="M">
-                    <label for="male">Male</label>
-                </div>
-                <div class="form-groups">
-                    <input type="radio" id="female" name="sex" value="F">
-                    <label for="female">Female</label>
-                </div>
 
-                <div class="form-group">
-                    <label for="address">Address:</label>
-                    <input type="text" id="address" name="address">
-                </div>
-                <div class="form-group">
-                    <label for="CAP">CAP:</label>
-                    <input type="text" id="CAP" name="CAP">
-                </div>
-                <div class="form-group">
-                    <label for="city">City:</label>
-                    <input type="text" id="city" name="city">
-                </div>
-                <div class="form-group">
-                    <label for="province">Province:</label>
-                    <input type="text" id="province" name="province">
-                </div>
-                <div class="form-group">
-                    <label for="state">State:</label>
-                    <input type="text" id="state" name="state">
-                </div>
-                <div class="form-group">
-                    <label for="CF">CF:</label>
-                    <input type="text" id="CF" name="CF">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" name="email">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone:</label>
-                    <input type="text" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="notes">Notes:</label>
-                    <textarea id="notes" name="notes" rows="4"></textarea>
-                </div>
+        <form method="POST">
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required>
 
-                <div class="buttons">
-                    <button type="submit">Save</button>
-                    <button type="button" onclick="window.history.back();">Back</button>
-                    <button type="button" onclick="window.location.href='patients.php';">Cancel</button>
-                </div>
-            </form>
-        </div>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required>
+
+            <label for="birth">Birth Date:</label>
+            <input type="date" id="birth" name="birth">
+
+            <label for="birth_city">Birth City:</label>
+            <input type="text" id="birth_city" name="birth_city">
+
+            <label for="birth_province">Birth Province:</label>
+            <input type="text" id="birth_province" name="birth_province">
+
+            <label for="birth_state">Birth State:</label>
+            <input type="text" id="birth_state" name="birth_state">
+
+            <label for="sex">Gender:</label>
+            <input type="radio" id="male" name="sex" value="M">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="sex" value="F">
+            <label for="female">Female</label>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address">
+
+            <label for="CAP">CAP:</label>
+            <input type="text" id="CAP" name="CAP">
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city">
+
+            <label for="province">Province:</label>
+            <input type="text" id="province" name="province">
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state">
+
+            <label for="CF">CF:</label>
+            <input type="text" id="CF" name="CF">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone">
+
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes" rows="4"></textarea>
+
+            <div class="buttons">
+                <button type="submit">Save</button>
+                <button type="button" onclick="window.history.back();">Back</button>
+                <button type="button" onclick="window.location.href='patients.php';">Cancel</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>

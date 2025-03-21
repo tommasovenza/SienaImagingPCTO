@@ -60,30 +60,66 @@ try {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
         <title>Edit Pathology</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            .content {
+                padding: 20px;
+                text-align: center;
+            }
+            form {
+                display: inline-block;
+                text-align: left;
+                margin: 20px auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+                width: 80%;
+                max-width: 600px;
+            }
+            label {
+                display: block;
+                margin: 10px 0;
+                font-weight: bold;
+            }
+            select, button {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0 15px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            button {
+                background-color: #04AA6D;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
     </head>
     <body>
-        <header>
+        <div class="content">
             <h1>Edit Pathology</h1>
-        </header>
-        <div class="alline">
-            <div class="form-container">
-                <form method="POST" action="save_pathology.php">
-                    <input type="hidden" name="id" value="<?= safe_input($pathology['ID_patol']) ?>">
-                    <div class="form-group">
-                        <label for="deprecated">Deprecated:</label>
-                        <select id="deprecated" name="deprecated" required>
-                            <option value="0" <?= !$pathology['deprecated'] ? 'selected' : '' ?>>No</option>
-                            <option value="1" <?= $pathology['deprecated'] ? 'selected' : '' ?>>Yes</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit">Save</button>
-                        <button type="button" onclick="window.history.back();">Back</button>
-                    </div>
-                </form>
-            </div>
+            <form method="POST" action="save_pathology.php">
+                <input type="hidden" name="id" value="<?= safe_input($pathology['ID_patol']) ?>">
+
+                <label for="deprecated">Deprecated:</label>
+                <select id="deprecated" name="deprecated" required>
+                    <option value="0" <?= !$pathology['deprecated'] ? 'selected' : '' ?>>No</option>
+                    <option value="1" <?= $pathology['deprecated'] ? 'selected' : '' ?>>Yes</option>
+                </select>
+
+                <button type="submit">Save</button>
+                <button type="button" onclick="window.history.back();">Back</button>
+            </form>
         </div>
     </body>
     </html>

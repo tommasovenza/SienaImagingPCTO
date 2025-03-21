@@ -101,40 +101,50 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    <link rel="stylesheet" href="style.css">
     <title>Secure Login</title>
     <style>
-
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            margin-top: 100px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        input {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
         .link {
             margin-top: 20px;
         }
     </style>
 </head>
-
 <body>
-    <header>
+    <div class="form-container">
         <h1>Login</h1>
-    </header>
-    <div class="alline">
-        <div class="form-container">
-            <form method="POST" action="login.php">
-                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" pattern="[a-zA-Z0-9]{3,20}" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" minlength="8" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit" name="login">Login</button>
-                    <button type="button" onclick="window.location.href='homepage.php';">Back</button>
-                </div>
-                <div>
-                <a>Don't have an account? </a><a href="signup.php">Sign up</a>
-                </div>
-            </form>
+        <form method="POST" action="login.php">
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" pattern="[a-zA-Z0-9]{3,20}" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" minlength="8" required>
+            <button type="submit" name="login">Login</button>
+            <button type="button" onclick="window.location.href='homepage.php';">Back</button>
+        </form>
+        <div class="link">
+            <a>Don't have an account? </a><a href="signup.php">Sign up</a>
         </div>
     </div>
 </body>

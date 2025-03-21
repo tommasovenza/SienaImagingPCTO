@@ -1,5 +1,5 @@
 <?php
-include 'user_navbar.php';
+require_once "user_dashboard.php";
 require_once "utils.php";
 require_once "logger.php";
 
@@ -17,13 +17,35 @@ try {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
         <title>Institutions List</title>
-
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            .content {
+                padding: 20px;
+                text-align: center;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f4f4f4;
+            }
+        </style>
     </head>
     <body>
-        <main class="main">
-            <div class="content2"><h1>Institutions List</h1></div>
+        <div class="content">
+            <h1>Institutions List</h1>
             <table>
                 <tr>
                     <th>ID</th>
@@ -37,7 +59,7 @@ try {
                         <td><?= safe_input($row['inst_name']) ?></td>
                         <td><?= safe_input($row['inst_city']) ?></td>
                         <td>
-                            <form method="POST" action="edit_institution.php" class="max-width">
+                            <form method="POST" action="edit_institution.php">
                                 <input type="hidden" name="id" value="<?= safe_input($row['ID_inst']) ?>">
                                 <button type="submit">Edit</button>
                             </form>
@@ -45,7 +67,7 @@ try {
                     </tr>
                 <?php endwhile; ?>
             </table>
-        </main>
+        </div>
     </body>
     </html>
     <?php
