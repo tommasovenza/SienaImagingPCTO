@@ -51,89 +51,57 @@ try {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
         <title>Edit Physician</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
-            .content {
-                padding: 20px;
-                text-align: center;
-            }
-            form {
-                display: inline-block;
-                text-align: left;
-                margin: 20px auto;
-                padding: 20px;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                background-color: #f9f9f9;
-                width: 80%;
-                max-width: 600px;
-            }
-            input, textarea, button {
-                width: 100%;
-                padding: 10px;
-                margin: 5px 0;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-            button {
-                background-color: #04AA6D;
-                color: white;
-                border: none;
-                cursor: pointer;
-            }
-            button:hover {
-                background-color: #45a049;
-            }
-            .buttons {
-                display: flex;
-                justify-content: space-between;
-            }
-            .buttons button {
-                width: 30%;
-            }
-        </style>
+
     </head>
     <body>
-        <div class="content">
+        <header>
             <h1>Edit Physician</h1>
-            <form method="POST" action="save_physician.php">
-                <input type="hidden" name="id" value="<?= safe_input($physician['ID_phy']) ?>">
-
-                <label for="lastname">Last Name:</label>
-                <input type="text" id="lastname" name="lastname" value="<?= safe_input($physician['lastname']) ?>" required>
-
-                <label for="firstname">First Name:</label>
-                <input type="text" id="firstname" name="firstname" value="<?= safe_input($physician['firstname']) ?>">
-
-                <label for="CF">Codice Fiscale:</label>
-                <input type="text" id="CF" name="CF" value="<?= safe_input($physician['CF']) ?>">
-
-                <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="phone" value="<?= safe_input($physician['phone']) ?>">
-
-                <label for="cell">Cell:</label>
-                <input type="text" id="cell" name="cell" value="<?= safe_input($physician['cell']) ?>">
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="<?= safe_input($physician['email']) ?>">
-
-                <label for="specialization">Specialization:</label>
-                <input type="text" id="specialization" name="specialization" value="<?= safe_input($physician['specialization']) ?>">
-
-                <label for="notes">Notes:</label>
-                <textarea id="notes" name="notes"><?= safe_input($physician['notes']) ?></textarea>
-
-                <div class="buttons">
-                    <button type="submit">Save</button>
-                    <button type="button" onclick="window.location.href='physicians.php';">Back</button>
-                    <button type="button" onclick="window.history.back();">Cancel</button>
-                </div>
-            </form>
+        </header>
+        <div class="alline">
+            <div class="form-container">
+                <form method="POST" action="save_physician.php">
+                    <input type="hidden" name="id" value="<?= safe_input($physician['ID_phy']) ?>">
+                    <div class="form-group">
+                        <label for="lastname">Last Name:</label>
+                        <input type="text" id="lastname" name="lastname" value="<?= safe_input($physician['lastname']) ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstname">First Name:</label>
+                        <input type="text" id="firstname" name="firstname" value="<?= safe_input($physician['firstname']) ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="CF">Codice Fiscale:</label>
+                        <input type="text" id="CF" name="CF" value="<?= safe_input($physician['CF']) ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="text" id="phone" name="phone" value="<?= safe_input($physician['phone']) ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="cell">Cell:</label>
+                        <input type="text" id="cell" name="cell" value="<?= safe_input($physician['cell']) ?>">
+                    </div>    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="<?= safe_input($physician['email']) ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="specialization">Specialization:</label>
+                        <input type="text" id="specialization" name="specialization" value="<?= safe_input($physician['specialization']) ?>">
+                    </div>    
+                    <div class="form-group">
+                        <label for="notes">Notes:</label>
+                        <textarea id="notes" name="notes"><?= safe_input($physician['notes']) ?></textarea>
+                    </div>    
+                    <div class="form-group">
+                        <button type="submit">Save</button>
+                        <button type="button" onclick="window.location.href='physicians.php';">Back</button>
+                        <button type="button" onclick="window.history.back();">Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </body>
     </html>

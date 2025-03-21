@@ -51,66 +51,31 @@ try {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
         <title>Edit Institution</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
-            .content {
-                padding: 20px;
-                text-align: center;
-            }
-            form {
-                display: inline-block;
-                text-align: left;
-                margin: 20px auto;
-                padding: 20px;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                background-color: #f9f9f9;
-                width: 80%;
-                max-width: 600px;
-            }
-            label {
-                display: block;
-                margin: 10px 0;
-                font-weight: bold;
-            }
-            input, button {
-                width: 100%;
-                padding: 10px;
-                margin: 5px 0 15px 0;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-            button {
-                background-color: #04AA6D;
-                color: white;
-                border: none;
-                cursor: pointer;
-            }
-            button:hover {
-                background-color: #45a049;
-            }
-        </style>
     </head>
     <body>
-        <div class="content">
+        <header>
             <h1>Edit Institution</h1>
-            <form method="POST" action="save_institution.php">
-                <input type="hidden" name="id" value="<?= safe_input($institution['ID_inst']) ?>">
-
-                <label for="inst_name">Institution Name:</label>
-                <input type="text" id="inst_name" name="inst_name" value="<?= safe_input($institution['inst_name']) ?>" required>
-
-                <label for="inst_city">City:</label>
-                <input type="text" id="inst_city" name="inst_city" value="<?= safe_input($institution['inst_city']) ?>" required>
-
-                <button type="submit">Save</button>
-                <button type="button" onclick="window.history.back();">Back</button>
-            </form>
+        </header>
+        <div class="alline">
+            <div class="form-container">
+                <form method="POST" action="save_institution.php">
+                    <input type="hidden" name="id" value="<?= safe_input($institution['ID_inst']) ?>">
+                    <div class="form-group">
+                        <label for="inst_name">Institution Name:</label>
+                        <input type="text" id="inst_name" name="inst_name" value="<?= safe_input($institution['inst_name']) ?>" required>
+                    </div>    
+                    <div class="form-group">
+                        <label for="inst_city">City:</label>
+                        <input type="text" id="inst_city" name="inst_city" value="<?= safe_input($institution['inst_city']) ?>" required>
+                    </div>      
+                    <div class="form-group">
+                        <button type="submit">Save</button>
+                        <button type="button" onclick="window.history.back();">Back</button>
+                    </div>  
+                </form>
+            </div>
         </div>
     </body>
     </html>

@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Add Session</title>
 </head>
 <body>
-    <div class="content">
+    <header>
         <h1>Add Session</h1>
+    </header>
+    <div class="form-container">
+        
 
 <?php
 require_once "utils.php";
@@ -121,38 +125,48 @@ try {
     die();
 }
 ?>
-
-        <form method="POST">
-            <label for="session_date">Session Date:</label>
-            <input type="date" id="session_date" name="session_date" required>
-
-            <label for="filename_num">Filename Number:</label>
-            <input type="text" id="filename_num" name="filename_num">
-
-            <label for="storage">Storage:</label>
-            <input type="text" id="storage" name="storage">
-
-            <label for="optical_disk">Optical Disk:</label>
-            <input type="text" id="optical_disk" name="optical_disk">
-
-            <label for="richiesta">Request (Richiesta):</label>
-            <input type="text" id="richiesta" name="richiesta">
-
-            <label for="reg_provenienza">Region of Origin (Reg Provenienza):</label>
-            <input type="text" id="reg_provenienza" name="reg_provenienza">
-
-            <label for="study">Study:</label>
-            <input type="text" id="study" name="study">
-
-            <label for="nifti_paths">Nifti Paths (one per line):</label>
-            <textarea id="nifti_paths" name="nifti_paths" rows="5" required></textarea>
-
-            <div class="buttons">
-                <button type="submit">Save</button>
-                <button type="button" onclick="window.history.back();">Back</button>
-                <button type="button" onclick="window.location.href='sessions.php';">Cancel</button>
-            </div>
-        </form>
+    <div class="alline">
+        <div class="form-container">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="session_date">Session Date:</label>
+                    <input type="date" id="session_date" name="session_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="filename_num">Filename Number:</label>
+                    <input type="text" id="filename_num" name="filename_num">
+                </div>
+                <div class="form-group">
+                    <label for="storage">Storage:</label>
+                    <input type="text" id="storage" name="storage">
+                </div>
+                <div class="form-group">
+                    <label for="optical_disk">Optical Disk:</label>
+                    <input type="text" id="optical_disk" name="optical_disk">
+                </div>
+                <div class="form-group">
+                    <label for="richiesta">Request (Richiesta):</label>
+                    <input type="text" id="richiesta" name="richiesta">
+                </div>
+                <div class="form-group">
+                    <label for="reg_provenienza">Region of Origin (Reg Provenienza):</label>
+                    <input type="text" id="reg_provenienza" name="reg_provenienza">
+                </div>    
+                <div class="form-group">
+                    <label for="study">Study:</label>
+                    <input type="text" id="study" name="study">
+                </div>
+                <div class="form-group">
+                    <label for="nifti_paths">Nifti Paths (one per line):</label>
+                    <textarea id="nifti_paths" name="nifti_paths" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Save</button>
+                    <button type="button" onclick="window.history.back();">Back</button>
+                    <button type="button" onclick="window.location.href='sessions.php';">Cancel</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>
